@@ -3,18 +3,17 @@
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {setLoggedinUser} from '../actions/loginUser'
 
 class Login extends Component {
+
     render() {
         return (
-            <div className="tweet">
+            <div>
                 {this.props.users.map(user => (
-                        <div>
-                            <ol>
-                                <li>
+                        <div className="tweet" onClick={(event) => this.props.dispatch(setLoggedinUser(user))} key={user.id}>
+
                                     {user.name}
-                                </li>
-                            </ol>
                         </div>
                     )
                 )}
@@ -23,12 +22,11 @@ class Login extends Component {
     }
 }
 
-function mapStateToProps ({users}) {
+function mapStateToProps({users, loggedInUser}) {
     const keys = Object.keys(users || {}); // ['sarahedo', ...]//modifierar ej users objektet
     const usersArray = keys.map(key => users[key]);
     return {
         users: usersArray
     }
 }
-
 export default connect(mapStateToProps)(Login);
