@@ -3,6 +3,7 @@
  */
 
 import {saveQuestion} from '../utils/api';
+import {loadUsers} from './shared';
 
 
 export const SAVE_QUESTION = 'SAVE_QUESTION';
@@ -23,10 +24,12 @@ export function handleSaveQuestion (optionOne, optionTwo) {
         let question = {
             optionOneText:optionOne,
             optionTwoText:optionTwo,
-            author: loggedinUser.id
+            author: loggedinUser
         };
 
         return saveQuestion(question)
             .then((question) => dispatch(addQuestion(question)))
+            .then(()=> dispatch(loadUsers()))
     }
 }
+

@@ -49,13 +49,15 @@ class Add extends Component {
         }
         return (
             <div>
-                <h3 className='center'>Add new Question</h3>
+                <h3 className='center'>Would you rather?</h3>
                 <form className='new-tweet' onSubmit={this.handleSubmit}>
+                    <h5>Enter first option.</h5>
                     <input
                         placeholder="Option One"
                         value={optionOne}
                         onChange={this.handleOptionOneChange}
                     />
+                    <h5>Enter second option.</h5>
                     <input
                         placeholder="Option Two"
                         value={optionTwo}

@@ -10,8 +10,9 @@ class Login extends Component {
     render() {
         return (
             <div>
+                <h3>Log In</h3>
                 {this.props.users.map(user => (
-                        <div className="tweet" onClick={(event) => this.props.dispatch(setLoggedinUser(user))} key={user.id}>
+                        <div className="tweet" onClick={(event) => this.props.dispatch(setLoggedinUser(user.id))} key={user.id}>
 
                                     {user.name}
                         </div>
@@ -22,7 +23,8 @@ class Login extends Component {
     }
 }
 
-function mapStateToProps({users, loggedInUser}) {
+
+function mapStateToProps({users}) {
     const keys = Object.keys(users || {}); // ['sarahedo', ...]//modifierar ej users objektet
     const usersArray = keys.map(key => users[key]);
     return {

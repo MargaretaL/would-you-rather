@@ -4,10 +4,10 @@
 
 export const SET_LOGGEDIN_USER = 'SET_LOGGEDIN_USER';
 
-export function setLoggedinUser (user) {
+export function setLoggedinUser (userId) {
     return {
         type: SET_LOGGEDIN_USER,
-        user,
+        userId,
     }
 }
 

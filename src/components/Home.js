@@ -42,7 +42,7 @@ class App extends Component {
 
 function mapStateToProps({questions, loggedinUser}) {
     const questionArray = Object.values(questions);
-    const answeredQuestions = questionArray.filter(question => question.optionOne.votes.includes(loggedinUser.id) || question.optionOne.votes.includes(loggedinUser.id));
+    const answeredQuestions = questionArray.filter(question => question.optionOne.votes.includes(loggedinUser) || question.optionTwo.votes.includes(loggedinUser));
     const unansweredQuestions = questionArray.filter(question => !answeredQuestions.includes(question));
     return {
         answeredQuestions: answeredQuestions.sort((question1,question2) => question2.timestamp - question1.timestamp),

@@ -12,8 +12,8 @@ export function getQuestions () {
     return _getQuestions();
 }
 
-export function saveQuestionAnswer () {
-    return _saveQuestionAnswer();
+export function saveQuestionAnswer (info) {
+    return _saveQuestionAnswer(info);
 }
 
 export function saveQuestion (info) {

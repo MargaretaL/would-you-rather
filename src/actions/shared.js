@@ -1,10 +1,9 @@
 /**
  * Created by lilit on 2018-06-09.
  */
-import {getUsers, getQuestions, saveQuestion} from '../utils/api';
+import {getUsers, getQuestions} from '../utils/api';
 import {receiveUsers} from './users';
 import {receiveQuestions} from './questions';
-import {saveQuestionAnswers} from './add';
 
 
 export function loadUsers() {
