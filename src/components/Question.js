@@ -18,7 +18,7 @@ class Question extends Component {
 
     render() {
         return (
-            <div className="tweet">
+            <div className="question">
                 <div className="center">
                     <img className="avatar" src={this.props.users[this.props.question.author].avatarURL}
                          alt={this.props.users[this.props.question.author].name}/>

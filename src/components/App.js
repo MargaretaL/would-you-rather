@@ -75,7 +75,7 @@ class App extends Component {
                             <div className="center">
                                 <h5>Or</h5>
                             </div>
-                            <div className="tweet">
+                            <div className="question">
                                 <AddUser/>
                             </div>
                         </div>

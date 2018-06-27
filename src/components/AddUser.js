@@ -39,7 +39,7 @@ class AddUser extends Component {
         return (
             <div>
                 <h3 className='center'>Create New User</h3>
-                <form className='new-tweet' onSubmit={this.handleSubmit}>
+                <form className='new-question' onSubmit={this.handleSubmit}>
                     <h5>Enter your name.</h5>
                     <input
                         placeholder="Full name"

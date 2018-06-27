@@ -51,10 +51,10 @@ class Add extends Component {
         return (
             <div>
                 <h2 className="center">Add a new Question</h2>
-                <div className="tweet">
+                <div className="question">
                     <h3 className='center'>Would you rather?</h3>
-                    <form className='new-tweet' onSubmit={this.handleSubmit}>
-                        <div className="tweet-info">
+                    <form className='new-question' onSubmit={this.handleSubmit}>
+                        <div className="question-info">
                             <h5 className="text-muted">Enter first option.</h5>
                             <input
                                 placeholder="Option One"
@@ -62,7 +62,7 @@ class Add extends Component {
                                 onChange={this.handleOptionOneChange}
                             />
                         </div>
-                        <div className="tweet-info">
+                        <div className="question-info">
                             <h5 className="text-muted">Enter second option.</h5>
                             <input
                                 placeholder="Option Two"

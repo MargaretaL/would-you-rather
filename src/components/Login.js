@@ -15,7 +15,7 @@ class Login extends Component {
         return (
             <div>
                 {this.props.users.map(user => (
-                        <div style={loginStyle} className="tweet" onClick={(event) => this.props.dispatch(setLoggedinUser(user.id))}
+                        <div style={loginStyle} className="question" onClick={(event) => this.props.dispatch(setLoggedinUser(user.id))}
                              key={user.id}>
                             <img className="avatar" src={user.avatarURL} alt=""/>
                             {user.name}

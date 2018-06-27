@@ -33,11 +33,14 @@ class App extends Component {
                 {
                     (this.state.showAnswered ? this.props.answeredQuestions : this.props.unansweredQuestions)
                         .map(question => (
-                            <div className="tweet text-black-50">
+                            <div className="question text-black-50">
                                 <NavLink className="links" to={`/question/${question.id}`} key={question.id}>
                                     <h4>{question.author}</h4>
-                                    <div className=" text-muted links">{question.optionOne.text}</div>
-                                    <div className=" text-muted links">{question.optionTwo.text}</div>
+                                    <div className="textarea">
+                                        <div className=" text-muted links">{question.optionOne.text}</div>
+                                        <div className=" text-muted links">{question.optionTwo.text}</div>
+                                    </div>
+
                                 </NavLink>
                             </div>
 
