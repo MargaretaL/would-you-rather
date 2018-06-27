@@ -8,20 +8,37 @@ import {handleSaveAnswer} from '../actions/vote';
 
 class Question extends Component {
 
-     voteOptionOne = () => {
-         this.props.dispatch(handleSaveAnswer('optionOne', this.props.question.id))
-     };
+    voteOptionOne = () => {
+        this.props.dispatch(handleSaveAnswer('optionOne', this.props.question.id))
+    };
 
     voteOptionTwo = () => {
         this.props.dispatch(handleSaveAnswer('optionTwo', this.props.question.id))
     };
+
     render() {
         return (
-            <div>
-                <h1>Would you rather?</h1>
-                <img src={this.props.users[this.props.question.author].avatarURL} alt={this.props.users[this.props.question.author].name}/>
-                <div><button disabled={!!this.props.answer} onClick={this.voteOptionOne}>{this.props.question.optionOne.text} </button>{this.props.answer === 'optionOne'?  'Your Answer': ''}{this.props.votesOne.length}, {100 * this.props.votesOne.length/this.props.nbrOfVotes} %</div>
-                <div><button disabled={!!this.props.answer} onClick={this.voteOptionTwo}>{this.props.question.optionTwo.text}</button> {this.props.votesTwo.length}, {100 * this.props.votesTwo.length/this.props.nbrOfVotes} %</div>
+            <div className="tweet">
+                <div className="center">
+                    <img className="avatar" src={this.props.users[this.props.question.author].avatarURL}
+                         alt={this.props.users[this.props.question.author].name}/>
+                    <h4>{this.props.users[this.props.question.author].name}</h4>
+                    <h2>Would you rather?</h2>
+                </div>
+                <div className="textarea">
+                    <div>
+                        <button className="btn btn-outline-success voteButtonS" disabled={!!this.props.answer}
+                                onClick={this.voteOptionOne}>{this.props.question.optionOne.text} </button>
+                        {this.props.answer === 'optionOne' ? 'Your Answer: ' : ''}{this.props.votesOne.length}, {100 * this.props.votesOne.length / this.props.nbrOfVotes}
+                        %
+                    </div>
+                    <div>
+                        <button className="btn btn-outline-success voteButtonS" disabled={!!this.props.answer}
+                                onClick={this.voteOptionTwo}>{this.props.question.optionTwo.text}</button>
+                        {this.props.answer === 'optionTwo' ? 'Your Answer: ' : ''}{this.props.votesTwo.length}, {100 * this.props.votesTwo.length / this.props.nbrOfVotes}
+                        %
+                    </div>
+                </div>
             </div>
         );
     }
@@ -29,7 +46,7 @@ class Question extends Component {
 
 
 function mapStateToProps({questions, loggedinUser, users}, props) {
-    const { id } = props.match.params;
+    const {id} = props.match.params;
 
     let question = questions[id];
     return {

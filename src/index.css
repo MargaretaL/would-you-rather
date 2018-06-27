@@ -41,6 +41,7 @@ a {
 
 .center {
   text-align: center;
+  margin: auto;
 }
 
 .active {
@@ -70,7 +71,6 @@ li {
 
 .avatar {
   height: 50px;
-  border-radius: 25px;
   margin: 10px;
 }
 
@@ -78,15 +78,14 @@ li {
   width: 100%;
   max-width: 590px;
   padding: 10px;
-  display: flex;
-  margin: 0 auto;
+  margin: 20px auto;
   border: 1px solid #dad7d7;
   border-radius: 3px;
-  cursor: pointer;
+  background-color: floralwhite;
 }
 
 .tweet-info {
-  margin: 10px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -150,9 +149,10 @@ li {
 .textarea {
   border-radius: 4px;
   border: 1px solid #dad7d7;
-  padding: 10px;
   font-size: 15px;
-  height: 100px;
+  padding: 10px;
+  height: 100%;
+  background-color: white;
 }
 
 .tweet-length {
@@ -160,4 +160,42 @@ li {
   margin-top: 10px;
   font-size: 20px;
   color: #C3392A;
+}
+
+.logoutButton {
+  padding: 10px;
+  margin: 10px;
+  background-color: floralwhite;
+}
+
+.voteButton {
+  margin: 20px;
+}
+
+.voteButtonS {
+  margin: 20px;
+  width: 60%;
+}
+
+.navLinks {
+color: white;
+}
+
+.navLinks:hover {
+  text-decoration: none;
+  color: floralwhite;
+}
+
+.navLinks:active {
+ font-weight: normal!important;
+}
+
+.links {
+  text-decoration: none;
+  color: #252525;
+}
+
+.links:hover {
+  text-decoration: none;
+  color: black;
 }

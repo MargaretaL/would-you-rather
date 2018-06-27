@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 import '../App.css';
 import {connect} from 'react-redux';
-import { NavLink } from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 
 class App extends Component {
@@ -21,17 +21,26 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1>Would you rather?</h1>
-                <button onClick={() => this.setShowAnswered(true)}>Answered</button>
-                <button onClick={() => this.setShowAnswered(false)}>Unanswered</button>
+                <div className="center">
+                    <h2>Would you rather?</h2>
+                    <button className="btn btn-outline-success voteButton" onClick={() => this.setShowAnswered(true)}>
+                        Answered
+                    </button>
+                    <button className="btn btn-outline-secondary voteButton"
+                            onClick={() => this.setShowAnswered(false)}>Unanswered
+                    </button>
+                </div>
                 {
                     (this.state.showAnswered ? this.props.answeredQuestions : this.props.unansweredQuestions)
                         .map(question => (
-                            <NavLink to={`/question/${question.id}`} className="tweet" key={question.id}>{question.author}
-                                <div>{question.optionOne.text}</div>
-                                <div>{question.optionTwo.text}</div>
-                                <div>{question.timestamp}</div>
-                            </NavLink>
+                            <div className="tweet text-black-50">
+                                <NavLink className="links" to={`/question/${question.id}`} key={question.id}>
+                                    <h4>{question.author}</h4>
+                                    <div className=" text-muted links">{question.optionOne.text}</div>
+                                    <div className=" text-muted links">{question.optionTwo.text}</div>
+                                </NavLink>
+                            </div>
+
                         ))
                 }
             </div>
@@ -40,13 +49,17 @@ class App extends Component {
 }
 
 
-function mapStateToProps({questions, loggedinUser}) {
+function mapStateToProps({questions, loggedinUser, users}) {
     const questionArray = Object.values(questions);
     const answeredQuestions = questionArray.filter(question => question.optionOne.votes.includes(loggedinUser) || question.optionTwo.votes.includes(loggedinUser));
     const unansweredQuestions = questionArray.filter(question => !answeredQuestions.includes(question));
+
+
+
     return {
-        answeredQuestions: answeredQuestions.sort((question1,question2) => question2.timestamp - question1.timestamp),
-        unansweredQuestions: unansweredQuestions.sort((question1,question2) => question2.timestamp - question1.timestamp)
+        answeredQuestions: answeredQuestions.sort((question1, question2) => question2.timestamp - question1.timestamp),
+        unansweredQuestions: unansweredQuestions.sort((question1, question2) => question2.timestamp - question1.timestamp),
+        users
     }
 }
 

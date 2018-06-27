@@ -5,16 +5,20 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {setLoggedinUser} from '../actions/loginUser'
 
+
+const loginStyle = {
+    cursor: 'pointer'
+};
 class Login extends Component {
 
     render() {
         return (
             <div>
-                <h3>Log In</h3>
                 {this.props.users.map(user => (
-                        <div className="tweet" onClick={(event) => this.props.dispatch(setLoggedinUser(user.id))} key={user.id}>
-
-                                    {user.name}
+                        <div style={loginStyle} className="tweet" onClick={(event) => this.props.dispatch(setLoggedinUser(user.id))}
+                             key={user.id}>
+                            <img className="avatar" src={user.avatarURL} alt=""/>
+                            {user.name}
                         </div>
                     )
                 )}

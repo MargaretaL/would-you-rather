@@ -2,11 +2,13 @@
  * Created by lilit on 2018-06-07.
  */
 
+
+
 let users = {
     sarahedo: {
         id: 'sarahedo',
         name: 'Sarah Edo',
-        avatarURL: '',
+        avatarURL: '/images/panda-3036773_640.png',
         answers: {
             "8xf0y6ziyjabvozdd253nd": 'optionOne',
             "6ni6ok3ym7mf1p33lnez": 'optionOne',
@@ -18,7 +20,7 @@ let users = {
     tylermcginnis: {
         id: 'tylermcginnis',
         name: 'Tyler McGinnis',
-        avatarURL: '',
+        avatarURL: '/images/avatar-1295430_640.png',
         answers: {
             "vthrdm985a262al8qx3do": 'optionOne',
             "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -28,7 +30,7 @@ let users = {
     johndoe: {
         id: 'johndoe',
         name: 'John Doe',
-        avatarURL:'' ,
+        avatarURL: '/images/vampire-151178_640.png',
         answers: {
             "xj352vofupe1dqz9emx13r": 'optionOne',
             "vthrdm985a262al8qx3do": 'optionTwo',
@@ -119,23 +121,23 @@ let questions = {
     },
 };
 
-function generateUID () {
+function generateUID() {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 }
 
-export function _getUsers () {
+export function _getUsers() {
     return new Promise((res, rej) => {
         setTimeout(() => res({...users}), 1000)
     })
 }
 
-export function _getQuestions () {
+export function _getQuestions() {
     return new Promise((res, rej) => {
         setTimeout(() => res({...questions}), 1000)
     })
 }
 
-function formatQuestion ({ optionOneText, optionTwoText, author }) {
+function formatQuestion({optionOneText, optionTwoText, author}) {
     return {
         id: generateUID(),
         timestamp: Date.now(),
@@ -151,7 +153,7 @@ function formatQuestion ({ optionOneText, optionTwoText, author }) {
     }
 }
 
-export function _saveQuestion (question) {
+export function _saveQuestion(question) {
     return new Promise((res, rej) => {
         const authedUser = question.author;
         const formattedQuestion = formatQuestion(question);
@@ -175,7 +177,7 @@ export function _saveQuestion (question) {
     })
 }
 
-export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
+export function _saveQuestionAnswer({authedUser, qid, answer}) {
     return new Promise((res, rej) => {
         setTimeout(() => {
             users = {
@@ -202,5 +204,45 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
 
             res()
         }, 500)
+    })
+}
+
+//add user
+
+function generateUserID(user) {
+    const usera= user.toLowerCase().replace(/\s/g, '');
+    return usera;
+}
+
+/*var arr = [1, 2, 3];
+ var arr2 = [...arr]; // like arr.slice()
+ arr2.push(4);
+
+ // arr2 becomes [1, 2, 3, 4]
+ // arr remains unaffected*/
+
+function formatUser({user}) {
+    return {
+        id: generateUserID(user),
+        name: user,
+        avatarURL: '',
+        answers: {},
+        questions: []
+
+    }
+}
+
+
+export function _saveUser(user) {
+    return new Promise((res, rej) => {
+        const formattedUser = formatUser(user);
+
+        setTimeout(() => {
+            users = {
+                ...users,
+                [formattedUser.id]: formattedUser,
+            };
+            res(formattedUser)
+        }, 1000)
     })
 }
