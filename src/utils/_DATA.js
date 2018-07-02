@@ -210,16 +210,11 @@ export function _saveQuestionAnswer({authedUser, qid, answer}) {
 //add user
 
 function generateUserID(user) {
-    const usera= user.toLowerCase().replace(/\s/g, '');
-    return usera;
+    const theUserID= user.toLowerCase().replace(/\s/g, '');
+    return theUserID;
 }
 
-/*var arr = [1, 2, 3];
- var arr2 = [...arr]; // like arr.slice()
- arr2.push(4);
 
- // arr2 becomes [1, 2, 3, 4]
- // arr remains unaffected*/
 
 function formatUser({user}) {
     return {

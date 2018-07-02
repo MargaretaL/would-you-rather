@@ -17,7 +17,7 @@ class LeaderBoard extends Component {
 
                 {this.props.users.map(user => (
 
-                    <div className="question text-muted">
+                    <div className="question text-muted" key={user.id}>
                         <div className="center">
                             <img className="avatar" src={user.avatarURL} alt=""/>
                             <figcaption>{user.name}</figcaption>

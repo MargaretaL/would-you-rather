@@ -1,9 +1,4 @@
-/**
- * Created by lilit on 2018-06-18.
- */
-/**
- * Created by lilit on 2018-06-12.
- */
+
 
 import React, {Component} from 'react'
 import {connect} from 'react-redux'

@@ -3,7 +3,6 @@
  */
 
 import {saveUser} from '../utils/api';
-import {loadUsers} from './shared';
 
 
 export const SAVE_USER = 'SAVE_USER';

@@ -4,7 +4,7 @@ import '../index.css';
 import '../App.css';
 import {loadUsers, loadQuestions} from '../actions/shared'
 import Login from './Login';
-import {Navbar, Nav, NavItem, NavbarBrand} from 'reactstrap';
+import {Navbar, Nav, NavItem} from 'reactstrap';
 import {logoutUser} from '../actions/logoutUser';
 import Home from './Home';
 import Add from './Add';
