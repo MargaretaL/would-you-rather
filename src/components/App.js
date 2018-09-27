@@ -60,7 +60,7 @@ class App extends Component {
                                 </NavItem>
                             </Navbar>
                             <Switch>
-                                <Route path='/' component={Home}/>
+                                <Route path='/' exact component={Home}/>
                                 <Route path='/question/:id' component={Question}/>
                                 <Route path='/add' exact component={Add}/>
                                 <Route path='/leaderboard' exact component={LeaderBoard}/>

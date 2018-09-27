@@ -53,7 +53,6 @@ class Question extends Component {
     }
 }
 
-
 function mapStateToProps({questions, loggedinUser, users}, props) {
     const {id} = props.match.params;
 
@@ -72,6 +71,5 @@ function mapStateToProps({questions, loggedinUser, users}, props) {
     }
 
 }
-
 
 export default connect(mapStateToProps)(Question);
