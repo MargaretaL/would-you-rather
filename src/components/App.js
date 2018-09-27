@@ -12,7 +12,7 @@ import AddUser from './AddUser';
 
 import Question from './Question';
 import LeaderBoard from './LeaderBoard';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {NavLink} from 'react-router-dom';
 
 const pageStyle = {
@@ -59,10 +59,13 @@ class App extends Component {
                                     </button>
                                 </NavItem>
                             </Navbar>
-                            <Route path='/' exact component={Home}/>
-                            <Route path='/question/:id' component={Question}/>
-                            <Route path='/add' exact component={Add}/>
-                            <Route path='/leaderboard' exact component={LeaderBoard}/>
+                            <Switch>
+                                <Route path='/' component={Home}/>
+                                <Route path='/question/:id' component={Question}/>
+                                <Route path='/add' exact component={Add}/>
+                                <Route path='/leaderboard' exact component={LeaderBoard}/>
+                            </Switch>
+
                         </div>
                     </Router>
                     : <div>
@@ -88,9 +91,11 @@ class App extends Component {
 }
 
 function mapStateToProps({loggedinUser, users}) {
+
     return {
         loggedinUser: users[loggedinUser]
     }
+
 }
 
 export default connect(mapStateToProps)(App);

@@ -2,8 +2,6 @@
  * Created by lilit on 2018-06-07.
  */
 
-
-
 let users = {
     sarahedo: {
         id: 'sarahedo',
@@ -214,8 +212,6 @@ function generateUserID(user) {
     return theUserID;
 }
 
-
-
 function formatUser({user}) {
     return {
         id: generateUserID(user),
@@ -226,7 +222,6 @@ function formatUser({user}) {
 
     }
 }
-
 
 export function _saveUser(user) {
     return new Promise((res, rej) => {

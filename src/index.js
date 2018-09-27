@@ -13,9 +13,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const store = createStore(rootReducer, middleware);
 
 
+
+
 ReactDOM.render(
     <Provider store={store}>
-            <App />
+            <App/>
     </Provider>,
     document.getElementById('root'));
 registerServiceWorker();

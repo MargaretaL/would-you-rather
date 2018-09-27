@@ -7,6 +7,12 @@ import {connect} from 'react-redux'
 import {handleSaveQuestion} from '../actions/add'
 import {Redirect} from 'react-router-dom'
 
+const defaultValue = {
+    optionOne: '',
+    optionTwo: '',
+    toHome: true,
+};
+
 class Add extends Component {
     state = {
         optionOne: '',
@@ -35,15 +41,13 @@ class Add extends Component {
 
         dispatch(handleSaveQuestion(optionOne, optionTwo));
 
-        this.setState(() => ({
-            optionOne: '',
-            optionTwo: '',
-            toHome: true,
-        }))
+        this.setState(defaultValue)
     };
+
 
     render() {
         const {optionOne, optionTwo, toHome} = this.state;
+
 
         if (toHome === true) {
             return <Redirect to='/'/>

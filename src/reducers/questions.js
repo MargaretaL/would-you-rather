@@ -6,9 +6,10 @@ import {SAVE_QUESTION} from '../actions/add';
 
 
 export default function questions(state = {}, action) {
+    let newState;
     switch (action.type) {
         case RECEIVE_QUESTIONS :
-            let newState = {
+             newState = {
                 ...state,
                 ...action.questions
             };

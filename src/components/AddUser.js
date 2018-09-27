@@ -1,8 +1,8 @@
-
-
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {handleSaveUser} from '../actions/addUser'
+
+
 
 class AddUser extends Component {
     state = {

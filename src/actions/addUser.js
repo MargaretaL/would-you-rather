@@ -15,12 +15,9 @@ function addUser (user) {
     }
 }
 
-
-
 export function handleSaveUser (user) {
     console.log(user);
     return (dispatch) => {
-
 
         return saveUser({user})
             .then(console.log(user))

@@ -2,36 +2,34 @@
  * Created by lilit on 2018-06-13.
  */
 
-import React, {Component} from 'react';
+import React from 'react';
 import '../App.css';
 import {connect} from 'react-redux';
 
 
-class LeaderBoard extends Component {
-    render() {
-        return (
+const LeaderBoard = ({users})=>(
             <div>
                 <div className="center">
                     <h2>LeaderBoard</h2>
                 </div>
 
-                {this.props.users.map(user => (
-
-                    <div className="question text-muted" key={user.id}>
+                {users.map(({id, avatarURL, name, questions, answers}) => (
+                    <div className="question text-muted carousel-fade" key={id}>
                         <div className="center">
-                            <img className="avatar" src={user.avatarURL} alt=""/>
-                            <figcaption>{user.name}</figcaption>
+                            <img className="avatar" src={avatarURL} alt=""/>
+                            <figcaption>{name}</figcaption>
                         </div>
                         <div className="textarea">
-                            <h5>Questions asked: {user.questions.length}</h5>
-                            <h5>Questions answered: {Object.keys(user.answers).length}</h5>
+                            <h5>Questions asked: {questions.length}</h5>
+                            <h5>Questions answered: {Object.keys(answers).length}</h5>
                         </div>
                     </div>
-                ))}
+                ))}0
+
             </div>
-        )
-    }
-}
+    );
+
+
 
 function mapStateToProps({users}) {
     const usersArray = Object.values(users);

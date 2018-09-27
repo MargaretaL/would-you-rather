@@ -6,7 +6,6 @@ import '../App.css';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom'
 
-
 class App extends Component {
     state = {
         showAnswered: false
@@ -33,7 +32,7 @@ class App extends Component {
                 {
                     (this.state.showAnswered ? this.props.answeredQuestions : this.props.unansweredQuestions)
                         .map(question => (
-                            <div className="question text-black-50">
+                            <div className="question text-black-50" key={question.id}>
                                 <NavLink className="links" to={`/question/${question.id}`} key={question.id}>
                                     <h4>{question.author}</h4>
                                     <div className="textarea">

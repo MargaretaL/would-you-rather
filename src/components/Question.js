@@ -15,7 +15,6 @@ class Question extends Component {
     voteOptionTwo = () => {
         this.props.dispatch(handleSaveAnswer('optionTwo', this.props.question.id))
     };
-
     render() {
         return (
             <div>
@@ -49,7 +48,6 @@ class Question extends Component {
                         <h3> The question you are looking for is not found.</h3>
                     </div>
                 }
-
             </div>
         )
     }
